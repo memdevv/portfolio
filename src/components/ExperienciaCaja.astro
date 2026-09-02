@@ -1,0 +1,53 @@
+---
+
+interface Props {
+    trabajo: string;
+    anio: string;
+    titulo: string;
+    descripcion: string;
+    cantidadIcons: string[];
+}
+
+import { Icon } from 'astro-icon/components'
+
+const { trabajo, anio, titulo, descripcion, cantidadIcons } = Astro.props
+---
+
+
+    <!-- Inicio de Caja Experiencia -->
+    <div>
+        <div class="p-4 font-poppins flex w-full items-stretch">
+            <div class="bg-[#4D323B] p-2 rounded-l-2xl self-stretch shrink-0">
+                <ul class="list-disc list-inside text-[#CCCCCC]">
+                    {cantidadIcons.map((iconName) => (
+                        <li class="list-none">
+                            <Icon
+                                name={iconName}
+                                class="w-10 hover:scale-[1.2] transition-all cursor-pointer h-10 text-[#CCCCCC] mb-2"
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div class="flex flex-1 flex-col">
+                <div class="bg-[#4D4C44] flex gap-2 w-full rounded-tr-2xl">
+                    <p class="text-[13px] hover:bg-[#383733] cursor-default p-1">Archivos</p>
+                    <p class="text-[13px] hover:bg-[#383733] cursor-default p-1">Editar</p>
+                    <p class="text-[13px] hover:bg-[#383733] cursor-default p-1">Ver</p>
+                </div>
+                <div class="bg-[#310821] p-2 rounded-br-2xl flex-1 h-full">
+                    <div class="flex justify-between items-start mb-2 flex-col">
+                        <h3 class="text-lg font-semibold text-white">
+                            {trabajo}
+                        </h3>
+                        <span class="text-sm text-[#999999] font-semibold">{anio}</span>
+                    </div>
+                    <p class="text-[#AAAAAA] mb-3">{titulo}</p>
+                    <p class="text-[#CCCCCC] mb-3">
+                        {descripcion}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin de Caja Experiencia -->
