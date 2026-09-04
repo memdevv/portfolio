@@ -12,6 +12,14 @@ import '../styles/global.css'
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<script is:inline>
+			const themeNotes = localStorage.getItem('themeNotes');
+			if(themeNotes === 'dark' || (!themeNotes && window.matchMedia('(prefers-color-schema: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			}else{
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
 	</head>
 	<body class="bg-gray-900 text-white">
 		<slot />

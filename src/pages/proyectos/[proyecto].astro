@@ -1,0 +1,19 @@
+---
+import Header from '../../components/header/Header.astro';
+import Notas from '../../components/proyectos/Notas.astro';
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths(){
+    return [
+        {params: {proyecto: 'portfolio'}}
+    ]
+}
+---
+
+<Layout>
+    <Header/>
+
+    <Notas />
+</Layout>
+
+

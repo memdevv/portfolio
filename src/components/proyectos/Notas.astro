@@ -1,0 +1,50 @@
+---
+
+import { Icon } from 'astro-icon/components'
+
+---
+
+
+
+<section class="my-10">
+    <div id="notas" class="md:max-w-6/12 max-w-10/12 border border-white h-6/12 mx-auto rounded-2xl bg-[#FCFCFC] dark:bg-mist-800 ">
+
+        <div id="notas-nav" class="flex items-center w-full justify-between p-2 text-black dark:text-mist-200 bg-[#EEEEEE] dark:bg-mist-900 shadow rounded-t-2xl m-0">
+            <div class="flex items-center gap-2">
+                <p class="m-0 font-bold">Open</p>
+                <Icon size={16} class="rotate-90 text-gray-500" name="arrow"/>
+                <span class="text-gray-500 text-[20px]">+</span>
+            </div>
+            <div class="flex flex-col justify-center">
+                <p class="font-semibold">Portfolio (Titulo)</p>
+                <p class="text-center text-[14px] text-gray-500">Subtitulo</p>
+            </div>
+            <div class="flex gap-4">
+                <button id="btnSettings"><Icon size={23} class="text-gray-500 cursor-pointer" name="settings"/></button>
+                <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded" name="menu-burger"/>
+                <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded-2xl rotate-90" name="line"/>
+                <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded-2xl" name="square"/>
+                <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded-2xl" name="cross"/>
+            </div>
+        </div>
+
+        <div id="notas-cont" class="text-[#474747] dark:text-mist-200 p-2">
+            <p class="font-semibold mt-4">Portfolio con tematica de Linux Ubuntu minimalista</p>
+            <img class="rounded-2xl mt-4" src="/img/img1.png" alt="">
+            <div class="flex justify-between">
+                <a href="" class="font-cascadia my-4 bg-amber-300 hover:bg-amber-400 dark:bg-mist-700 dark:hover:bg-mist-900 p-2 rounded-2xl"> &lt;Ir a la Pagina&gt; </a>
+                <a href="" class="font-cascadia bg-gray-800 my-4 text-white hover:bg-gray-900 p-2 rounded-2xl flex gap-2 items-center"> <Icon size={24} name="github"/> &lt;GitHub&gt; </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    const btnSettings = document.querySelector("#btnSettings")
+
+    btnSettings?.addEventListener('click', ()=>{
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('themeNotes', isDark ? 'dark' : 'light');
+    })
+
+</script>
