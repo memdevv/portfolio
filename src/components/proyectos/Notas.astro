@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon/components'
 
 
 <section class="my-10">
-    <div id="notas" class="md:max-w-6/12 max-w-10/12 border border-white h-6/12 mx-auto rounded-2xl bg-[#FCFCFC] dark:bg-mist-800 ">
+    <div id="notas" class="md:max-w-6/12 max-w-10/12 border border-white dark:border-mist-900 h-6/12 mx-auto rounded-2xl bg-[#FCFCFC] dark:bg-mist-800 ">
 
         <div id="notas-nav" class="flex items-center w-full justify-between p-2 text-black dark:text-mist-200 bg-[#EEEEEE] dark:bg-mist-900 shadow rounded-t-2xl m-0">
             <div class="flex items-center gap-2">
@@ -22,7 +22,7 @@ import { Icon } from 'astro-icon/components'
             <div class="flex gap-4">
                 <button id="btnSettings"><Icon size={23} class="text-gray-500 cursor-pointer" name="settings"/></button>
                 <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded" name="menu-burger"/>
-                <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded-2xl rotate-90" name="line"/>
+                <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded-2xl" name="line"/>
                 <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded-2xl" name="square"/>
                 <Icon size={23} class="bg-[#DCDCDC] dark:bg-[#353535] hover:bg-[#c4c4c4] dark:hover:bg-[#2b2b2b] p-1 rounded-2xl" name="cross"/>
             </div>
@@ -41,6 +41,9 @@ import { Icon } from 'astro-icon/components'
 
 <script is:inline>
     const btnSettings = document.querySelector("#btnSettings")
+    const savedTheme = localStorage.getItem('themeNotes')
+
+    document.documentElement.classList.toggle('dark', savedTheme !== 'light')
 
     btnSettings?.addEventListener('click', ()=>{
         const isDark = document.documentElement.classList.toggle('dark');

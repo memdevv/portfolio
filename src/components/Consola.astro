@@ -1,33 +1,52 @@
 ---
+import { Icon } from 'astro-icon/components'
 ---
 
-<div
-    class="border-2  border-[#CCCCCC] rounded-2xl p-4 mt-20 max-w-10/12 md:max-w-6/12 mx-auto h-8/12 bg-[#0C0C0C] flex flex-col gap-2 font-cascadia"
->   
-    <div>
-        <div id="incio-consola" class="flex flex-row gap-2">
-            <p id="hora" class="text-[#575656] font-bold hora"></p>
-            <p class="text-[#CCCCCC]">
-                Presione una tecla para continuar <span id="type1"></span>
-            </p>
+<div class=" shadow shadow-mist-800 border-[#CCCCCC] rounded  mt-20 max-w-10/12 md:max-w-6/12  mx-auto h-8/12 bg-[#2F0923] flex flex-col gap-2 font-cascadia">
+    <div class="p-2  rounded-t bg-[#2B2929]  w-full flex items-center justify-between">
+        <div class="flex items-center gap-6">
+            <a href=""><Icon class="text-white bg-[#ED6329] rounded-full w-5 p-1 h-5" name="cross"/></a>
+            <a href=""><Icon class="text-white" name="line"/></a>
+            <a href=""><Icon size={12} class="text-[#959494]" name="square"/></a>
         </div>
+        <div>
+            <p>memdevv@u2026: -</p>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="text-white text-[20px]">+</span>
+            <Icon name="menu-burger"/>
+        </div>
+    </div>
+    <div class="p-2">  
+        <div>
+            <div id="incio-consola" class="flex flex-row items-center gap-2">
+                <!-- <p id="hora" class="text-[#575656] font-bold hora"></p> -->
+                <div class="font-semibold text-green-600 whitespace-nowrap shrink-0">memdevv@u2026<span class="text-white">:<span class="text-blue-500">~</span>$</span></div>
+                <p class="text-white">
+                    Presione una tecla para continuar <span id="type1"></span>
+                </p>
+            </div>
 
-        <div class="flex flex-row texto1 gap-2">
-            <p id="hora2" class="text-[#575656] hidden font-bold"></p>
-            <p class="text-[#CCCCCC]" id="type2"></p>
+            <div class="flex flex-row items-start texto1 gap-2">
+                <!-- <p id="hora2" class="text-[#575656] hidden font-bold"></p> -->
+                <div id="usuario2" class="font-semibold text-green-600 hidden whitespace-nowrap shrink-0">memdevv@u2026<span class="text-white">:<span class="text-blue-500">~</span>$</span></div>
+                <p class="text-white" id="type2"></p>
+            </div>
+            <div class="flex flex-row items-start texto2 gap-2">
+                <!-- <p id="hora3" class="text-[#575656] hidden hora font-bold"></p> -->
+                <div id="usuario3" class="font-semibold text-green-600 hidden whitespace-nowrap shrink-0">memdevv@u2026<span class="text-white">:<span class="text-blue-500">~</span>$</span></div>
+                <p class="text-white" id="type3"></p>
+            </div>
         </div>
-        <div class="flex flex-row texto2 gap-2">
-            <p id="hora3" class="text-[#575656] hidden hora font-bold"></p>
-            <p class="text-[#CCCCCC]" id="type3"></p>
+        <div class="flex items-center consejo gap-2">
+            <!-- <p id="hora4" class="text-[#575656] hidden hora font-bold"></p> -->
+            <div id="usuario4" class="font-semibold text-green-600 hidden whitespace-nowrap shrink-0">memdevv@u2026<span class="text-white">:<span class="text-blue-500">~</span>$</span></div>
+            <span class="text-white texto-consejo hidden">Pon 'clear' para limpiar la consola</span>
         </div>
-    </div>
-    <div class="flex items-center consejo gap-2">
-        <p id="hora4" class="text-[#575656] hidden hora font-bold"></p>
-        <span class="text-[#CCCCCC] texto-consejo hidden">Pon 'clear' para limpiar la consola</span>
-    </div>
-    <div class="flex items-center">
-        <span>></span>
-        <input id="input" type="text" disabled class="bg-[#0C0C0C] text-[#CCCCCC] w-full p-2 outline-none" />
+        <div class="flex items-center">
+            <span>></span>
+            <input id="input" type="text" disabled class="bg-[#2F0923] text-white w-full p-2 outline-none" />
+        </div>
     </div>
 
 </div>
@@ -35,6 +54,7 @@
 <script>
     import Typed from "typed.js";
 
+    /*
     const obtenerHora = () =>
         new Date().toLocaleTimeString("es-ES", {
             hour: "2-digit",
@@ -42,12 +62,15 @@
             second: "2-digit",
             hour12: false,
         });
+    */
 
     //Tomar hora acutal y mostrarla
+    /*
     const hora = document.querySelector("#hora") as HTMLParagraphElement | null;
     if (hora) {
         hora.textContent = obtenerHora();
     }
+    */
 
     // Animacion de escritura en consola de los tres ...
     const typed1 = new Typed("#type1", {
@@ -73,13 +96,14 @@
         inicioConsola?.classList.add("hidden");
         typed1.destroy();
 
-        const hora2 = document.querySelector(
+        /* const hora2 = document.querySelector(
             "#hora2",
         ) as HTMLParagraphElement | null;
         if (hora2) {
             hora2.textContent = obtenerHora();
             hora2.classList.remove("hidden");
-        }
+        } */
+        document.querySelector("#usuario2")?.classList.remove("hidden");
 
         const texto1 = document.querySelector(".texto1");
         const typed2 = new Typed("#type2", {
@@ -95,13 +119,14 @@
 
                 // 2. Muestras la siguiente línea y/o inicias la nueva escritura abajo
                 const texto2 = document.querySelector(".texto2");
-                const hora3 = document.querySelector(
+                /* const hora3 = document.querySelector(
                     "#hora3",
                 ) as HTMLParagraphElement | null;
                 if (hora3) {
                     hora3.textContent = obtenerHora();
                     hora3.classList.remove("hidden");
-                }
+                } */
+                document.querySelector("#usuario3")?.classList.remove("hidden");
                 texto2?.classList.remove("hidden");
 
                 const typed3 = new Typed("#type3", {
@@ -115,13 +140,14 @@
                         self.cursor.style.display = "none";
 
                         const input = document.getElementById("input") as HTMLInputElement | null;
-                        const hora4 = document.querySelector(
+                        /* const hora4 = document.querySelector(
                             "#hora4",
                         ) as HTMLParagraphElement | null;
                         if (hora4) {
                             hora4.textContent = obtenerHora();
                             hora4.classList.remove("hidden");
-                        }
+                        } */
+                        document.querySelector("#usuario4")?.classList.remove("hidden");
                         const consejo = document.querySelector(".consejo");
                         const consejoTexto = document.querySelector(".texto-consejo");
                         consejoTexto?.classList.remove("hidden");

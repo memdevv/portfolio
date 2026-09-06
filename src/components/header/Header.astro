@@ -1,12 +1,20 @@
 ---
 import Nav from "./Nav.astro";
+import { Icon } from 'astro-icon/components'
 
 
 ---
 
 <header class="border-b border-white p-4 flex flex-col md:flex-row items-center justify-evenly">
     <a class="mb-4 md:mb-0" href="/">
-        <h1 class="font-cascadia text-2xl">memdevv</h1>
+        <div>
+            <h1 class="font-cascadia text-2xl">memdevv</h1>
+        </div>
+        <div class="flex items-center gap-2 justify-between mt-1">
+            <Icon size={20} name="youtube"/>
+            <Icon size={20} name="instagram"/>
+            <Icon size={20} name="github"/>
+        </div>
     </a>
     <div>
         <Nav />
