@@ -5,15 +5,19 @@ import Layout from '../../layouts/Layout.astro';
 
 export function getStaticPaths(){
     return [
-        {params: {proyecto: 'portfolio'}}
+        {params: {proyecto: 'portfolio'}, props: {titulo: 'Portfolio', subtitulo: 'Tematica Linux Ubuntu', descripcion: "Portfolio web con tematica de Linux Ubuntu", img: 'img1.png', linkPagina: '/', linkGithub: '/'}},
+        {params: {proyecto: 'base de datos'}, props: {titulo: 'Prueba', subtitulo: 'Prueba', descripcion: "Portfolio web con tematica de Linux Ubuntu", img: 'img1.png', linkPagina: '/', linkGithub: '/'}},
+
     ]
 }
+
+const {titulo, subtitulo, descripcion, img, linkPagina, linkGithub} = Astro.props;
 ---
 
 <Layout>
     <Header/>
 
-    <Notas />
+    <Notas titulo={titulo} subtitulo={subtitulo} descripcion={descripcion} img={img} linkPagina={linkPagina} linkGithub={linkGithub} />
 </Layout>
 
 

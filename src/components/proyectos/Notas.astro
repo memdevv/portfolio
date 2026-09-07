@@ -2,6 +2,8 @@
 
 import { Icon } from 'astro-icon/components'
 
+const {titulo, subtitulo, descripcion ,img, linkPagina, linkGithub} = Astro.props;
+
 ---
 
 
@@ -16,8 +18,8 @@ import { Icon } from 'astro-icon/components'
                 <span class="text-gray-500 text-[20px]">+</span>
             </div>
             <div class="flex flex-col justify-center">
-                <p class="font-semibold">Portfolio (Titulo)</p>
-                <p class="text-center text-[14px] text-gray-500">Subtitulo</p>
+                <p class="font-semibold text-center">{titulo}</p>
+                <p class="text-center text-[14px] text-gray-500">{subtitulo}</p>
             </div>
             <div class="flex gap-4">
                 <button id="btnSettings"><Icon size={23} class="text-gray-500 cursor-pointer" name="settings"/></button>
@@ -29,11 +31,11 @@ import { Icon } from 'astro-icon/components'
         </div>
 
         <div id="notas-cont" class="text-[#474747] dark:text-mist-200 p-2">
-            <p class="font-semibold mt-4">Portfolio con tematica de Linux Ubuntu minimalista</p>
-            <img class="rounded-2xl mt-4" src="/img/img1.png" alt="">
+            <p class="font-semibold mt-4">{descripcion}</p>
+            <img class="rounded-2xl mt-4" src=`/img/${img}` alt="">
             <div class="flex justify-between">
-                <a href="" class="font-cascadia my-4 bg-amber-300 hover:bg-amber-400 dark:bg-mist-700 dark:hover:bg-mist-900 p-2 rounded-2xl"> &lt;Ir a la Pagina&gt; </a>
-                <a href="" class="font-cascadia bg-gray-800 my-4 text-white hover:bg-gray-900 p-2 rounded-2xl flex gap-2 items-center"> <Icon size={24} name="github"/> &lt;GitHub&gt; </a>
+                <a href=`${linkPagina}` class="font-cascadia my-4 bg-amber-300 hover:bg-amber-400 dark:bg-mist-700 dark:hover:bg-mist-900 p-2 rounded-2xl"> &lt;Ir a la Pagina&gt; </a>
+                <a href=`${linkGithub}` class="font-cascadia bg-gray-800 my-4 text-white hover:bg-gray-900 p-2 rounded-2xl flex gap-2 items-center"> <Icon size={24} name="github"/> &lt;GitHub&gt; </a>
             </div>
         </div>
     </div>

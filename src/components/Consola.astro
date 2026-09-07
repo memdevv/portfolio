@@ -4,10 +4,10 @@ import { Icon } from 'astro-icon/components'
 
 <div class=" shadow shadow-mist-800 border-[#CCCCCC] rounded  mt-20 max-w-10/12 md:max-w-6/12  mx-auto h-8/12 bg-[#2F0923] flex flex-col gap-2 font-cascadia">
     <div class="p-2  rounded-t bg-[#2B2929]  w-full flex items-center justify-between">
-        <div class="flex items-center gap-6">
-            <a href=""><Icon class="text-white bg-[#ED6329] rounded-full w-5 p-1 h-5" name="cross"/></a>
-            <a href=""><Icon class="text-white" name="line"/></a>
-            <a href=""><Icon size={12} class="text-[#959494]" name="square"/></a>
+        <div class="flex items-center gap-5">
+            <Icon class="text-white bg-[#ED6329] rounded-full w-5 p-1 h-5" name="cross"/>
+            <Icon class="text-white" name="line"/>
+            <Icon size={12} class="text-[#959494]" name="square"/>
         </div>
         <div>
             <p>memdevv@u2026: -</p>
@@ -44,7 +44,7 @@ import { Icon } from 'astro-icon/components'
             <span class="text-white texto-consejo hidden">Pon 'clear' para limpiar la consola</span>
         </div>
         <div class="flex items-center">
-            <span>></span>
+            <div id="usuario5" class="font-semibold hidden text-green-600 whitespace-nowrap shrink-0">memdevv@u2026<span class="text-white">:<span class="text-blue-500">~</span>$</span></div>
             <input id="input" type="text" disabled class="bg-[#2F0923] text-white w-full p-2 outline-none" />
         </div>
     </div>
@@ -149,6 +149,7 @@ import { Icon } from 'astro-icon/components'
                         } */
                         document.querySelector("#usuario4")?.classList.remove("hidden");
                         const consejo = document.querySelector(".consejo");
+                        document.querySelector("#usuario5")?.classList.remove("hidden");
                         const consejoTexto = document.querySelector(".texto-consejo");
                         consejoTexto?.classList.remove("hidden");
                         consejo?.classList.remove("hidden");

@@ -1,0 +1,11 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const { iconNombre, nombre, class: className, classIcon } = Astro.props;
+---
+
+
+<div class:list={["flex flex-col justify-center text-center gap-2 px-2 py-4 rounded", className]}>
+    <Icon class:list={["text-center  mx-auto", classIcon]} size={50} name={iconNombre} />
+    <p class="text-[15px] font-semibold" >{nombre}</p>
+</div>
