@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon/components";
+import Titulo from "./Titulo.astro";
+
+
+
+
+---
+
+
+<section id="contacto" class="md:max-w-6/12 max-w-10/12 mx-auto px-4 pb-10">
+    <Titulo titulo="Contacto" />
+
+    <div class="grid gap-2 md:grid-cols-2">
+        <a class="cursor-pointer" href=""><div class="flex w-full flex-col items-center justify-center gap-3 rounded-lg bg-green-600 px-2 py-4 text-center text-white shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+            <Icon size={46} name="whatsapp" aria-hidden="true" />
+            <h3 class="text-lg font-semibold">WhatsApp</h3>
+            <p class="text-sm text-green-50">Escribime para conversar sobre tu proyecto.</p>
+        </div></a>
+
+        <a class="cursor-pointer" href=""><div class="flex flex-col w-full items-center justify-center gap-3 rounded-lg bg-gray-100 px-2 py-4 text-center text-gray-800 shadow-md transition hover:-translate-y-1 hover:shadow-lg dark:bg-gray-800 dark:text-white">
+            <Icon size={46} name="email" aria-hidden="true" />
+            <h3 class="text-lg font-semibold">Email</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">También podés contactarme por correo.</p>
+        </div></a>
+    </div>
+</section>

@@ -1,4 +1,5 @@
 ---
+import Titulo from '../Titulo.astro';
 import TecCaja from './TecCaja.astro';
 
 ---
@@ -6,16 +7,16 @@ import TecCaja from './TecCaja.astro';
 
 
 <section id="tec" class="md:max-w-6/12 max-w-10/12 mx-auto pb-10">
-    <h2 class="text-2xl font-bold text-center text-[#CCCCCC] mb-10">
-        Tecnologías que utilizo
-    </h2>
+
+    <Titulo titulo='Tecnologías que utilizo Actualmente'/>
+
     <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 font-cascadia">
-        <TecCaja iconNombre="astro" nombre="Astro" class="bg-purple-900" />
-        <TecCaja iconNombre="htmlicon" nombre="HTML" class="bg-amber-500" classIcon="text-orange-400 bg-white w-15 h-15 p-1 rounded-2xl" />
-        <TecCaja iconNombre="typescript" nombre="TypeScript" class="bg-blue-600" />
-        <TecCaja iconNombre="cssicon" nombre="CSS" class="bg-blue-500" classIcon="text-blue-500 bg-white w-15 h-15 p-1 rounded-2xl" />
-        <TecCaja iconNombre="jsicon" nombre="JavaScript" class="bg-amber-500" classIcon="text-amber-300 bg-white shadow rounded-[7px]" />
-        <TecCaja iconNombre="postgresql" nombre="PostgreSQL" class="bg-blue-600" />
+        <TecCaja iconNombre="astro" nombre="Astro" class="bg-slate-800" />
+        <TecCaja iconNombre="jsicon" nombre="JavaScript" class="bg-slate-800" classIcon="text-yellow-400 bg-slate-100 shadow rounded-[7px]" />
+        <TecCaja iconNombre="typescript" nombre="TypeScript" class="bg-slate-800" />
+        <TecCaja iconNombre="postgresql" nombre="PostgreSQL" class="bg-slate-800" />
+        <TecCaja iconNombre="htmlicon" nombre="HTML" class="bg-slate-800" classIcon="text-orange-400 bg-slate-100 w-15 h-15 p-1 rounded-2xl" />
+        <TecCaja iconNombre="cssicon" nombre="CSS" class="bg-slate-800" classIcon="text-sky-400 bg-slate-100 w-15 h-15 p-1 rounded-2xl" />
 
     </div>
 </section>

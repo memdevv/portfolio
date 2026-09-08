@@ -1,12 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components'
 import ExperienciaCaja from './ExperienciaCaja.astro';
+import Titulo from './Titulo.astro';
 ---
 
 <section id="experiencia" class="md:max-w-6/12 max-w-10/12 mx-auto my-10">
-    <h2 class="text-2xl font-bold text-center text-[#CCCCCC] mb-4">
-        Experiencia
-    </h2>
+
+    <Titulo titulo='Experiencia'/>
 
     <ExperienciaCaja trabajo='Colaborador como Desarrollador Full-Stack Freelance' anio="2024" titulo="Sistema de Gestión de Stock", descripcion='Desarrollo de aplicación web completa para control y gestión de inventario. Ayudando en el frontend, backend y base de datos.' cantidadIcons={['php', 'html', 'css', 'js', 'bootstrap', 'mysql']} />
 
