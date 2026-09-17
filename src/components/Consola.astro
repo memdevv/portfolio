@@ -84,7 +84,7 @@ import { Icon } from 'astro-icon/components'
 
     //Evitar que el usuario pueda hacer scroll mientras se ejecuta la animacion de escritura
     const body = document.querySelector("body");
-    // body?.classList.add('overflow-hidden'); // Descomentar esta linea luego de terminar el portfolio
+    body?.classList.add('overflow-hidden'); // Descomentar esta linea luego de terminar el portfolio
     
     // Evento para detectar cuando se presiona una tecla y ejecutar la animación de escritura
     document.addEventListener("keydown", function () {
