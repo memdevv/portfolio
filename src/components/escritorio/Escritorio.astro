@@ -42,7 +42,7 @@ import { Icon } from 'astro-icon/components'
             <div id="espacio-escritorio" class="flex-16">
 
 
-                <div id="contenedor" class="relative flex w-full h-full min-h-75">
+                <div id="contenedor" class="relative w-full h-full min-h-75">
                     
                     <Carpeta hrefNombre='portfolio' nombre='portfolio' />
                     <Carpeta hrefNombre='base de datos' nombre='Base de Datos' />
@@ -76,10 +76,15 @@ import { Icon } from 'astro-icon/components'
     const carpetas = document.querySelectorAll('.folder-item');
 
 
-    carpetas.forEach(carpeta => {
+    carpetas.forEach((carpeta, indice) => {
+        if (carpeta instanceof HTMLElement && !carpeta.id) {
+            carpeta.id = `folder-${indice}`;
+        }
+
         carpeta.addEventListener('dragstart', (e) => {
             if (e instanceof DragEvent && e.dataTransfer && e.currentTarget instanceof HTMLElement) {
-                e.dataTransfer.setData('text/plain', e.currentTarget.id);
+                const elemento = e.currentTarget;
+                e.dataTransfer.setData('text/plain', elemento.id);
                 e.dataTransfer.effectAllowed = 'move';
             }
         });
@@ -106,16 +111,17 @@ import { Icon } from 'astro-icon/components'
         if (!(e instanceof DragEvent) || !e.dataTransfer || !contenedor) return;
 
         const id = e.dataTransfer.getData('text/plain');
-        const elemento = document.getElementById(id);
-        const rectContenedor = contenedor.getBoundingClientRect();
-        if (!elemento) return;
+        const elemento = id ? document.getElementById(id) : null;
+        if (!(elemento instanceof HTMLElement)) return;
 
-        let x = e.clientX - rectContenedor.left;
-        let y = e.clientY - rectContenedor.top;
+        const rectContenedor = contenedor.getBoundingClientRect();
+        const x = e.clientX - rectContenedor.left;
+        const y = e.clientY - rectContenedor.top;
 
         elemento.style.position = 'absolute';
         elemento.style.left = `${x - 40}px`;
         elemento.style.top = `${y - 20}px`;
+        
     });
 
 
